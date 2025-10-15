@@ -1,0 +1,23 @@
+enabled: true
+blog-page: '/blog'
+
+# Site Information
+site:
+  name: 'Your Site Name'
+  tagline: 'Your Tagline'
+  url: 'https://yoursite.com'
+  
+# Social Media
+social:
+  twitter: '@YourTwitterHandle'
+  
+# Images
+images:
+  logo: 'theme://images/logo.png'
+  og_image: 'theme://images/og_image.png'
+  favicon: 'theme://images/favicon.png'
+
+# Theme Settings
+theme:
+  matrix_effect: true
+  glitch_effect: true

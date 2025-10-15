@@ -1,0 +1,200 @@
+name: Anonymous
+version: 1.0.0
+description: 'A cyberpunk/matrix-inspired theme for Grav CMS with privacy-focused aesthetics'
+icon: terminal
+author:
+  name: Kusai Mara
+  url: https://github.com/Kusaimara
+homepage: https://github.com/Kusaimara/grav-theme-anonymous
+demo: https://anonymd.eu
+keywords: grav, theme, cyberpunk, privacy, matrix, hacker, security, anonymous
+bugs: https://github.com/Kusaimara/grav-theme-anonymous/issues
+readme: https://github.com/Kusaimara/grav-theme-anonymous
+license: MIT
+
+dependencies:
+  - { name: grav, version: '>=1.7.0' }
+
+form:
+  validation: loose
+  fields:
+    tabs:
+      type: tabs
+      active: 1
+      
+      fields:
+        general:
+          type: tab
+          title: General
+          
+          fields:
+            enabled:
+              type: toggle
+              label: Theme Enabled
+              highlight: 1
+              default: 1
+              options:
+                1: PLUGIN_ADMIN.ENABLED
+                0: PLUGIN_ADMIN.DISABLED
+              validate:
+                type: bool
+                
+            matrix_effect:
+              type: toggle
+              label: Matrix Rain Effect
+              help: Enable animated matrix rain background
+              default: 1
+              options:
+                1: PLUGIN_ADMIN.ENABLED
+                0: PLUGIN_ADMIN.DISABLED
+              validate:
+                type: bool
+                
+            glitch_effect:
+              type: toggle
+              label: Glitch Text Effect
+              help: Enable glitch animation on headings
+              default: 1
+              options:
+                1: PLUGIN_ADMIN.ENABLED
+                0: PLUGIN_ADMIN.DISABLED
+              validate:
+                type: bool
+        
+        site_info:
+          type: tab
+          title: Site Information
+          
+          fields:
+            site.name:
+              type: text
+              label: Site Name
+              help: Your website name
+              placeholder: 'Your Site Name'
+              
+            site.tagline:
+              type: text
+              label: Tagline
+              help: A short description or slogan
+              placeholder: 'Your Tagline Here'
+              
+            site.description:
+              type: textarea
+              label: Site Description
+              help: Used for meta description
+              placeholder: 'A privacy-focused website with cyberpunk aesthetics'
+              rows: 3
+              
+            site.keywords:
+              type: text
+              label: Keywords
+              help: Comma-separated keywords for SEO
+              placeholder: 'privacy, security, cyberpunk'
+        
+        social:
+          type: tab
+          title: Social Media
+          
+          fields:
+            social.twitter:
+              type: text
+              label: Twitter Handle
+              help: Your Twitter/X handle (with @)
+              placeholder: '@YourHandle'
+              
+            social.github:
+              type: text
+              label: GitHub Username
+              help: Your GitHub username
+              placeholder: 'yourusername'
+              
+            social.email:
+              type: email
+              label: Contact Email
+              help: Your contact email address
+              placeholder: 'contact@yoursite.com'
+        
+        images:
+          type: tab
+          title: Images
+          
+          fields:
+            images.logo:
+              type: file
+              label: Logo
+              help: Upload your site logo
+              destination: 'theme://images'
+              accept:
+                - image/*
+                
+            images.og_image:
+              type: file
+              label: Social Share Image
+              help: Open Graph image for social media sharing (1200x630 recommended)
+              destination: 'theme://images'
+              accept:
+                - image/*
+                
+            images.favicon:
+              type: file
+              label: Favicon
+              help: Your site favicon (.ico or .png)
+              destination: 'theme://images'
+              accept:
+                - image/*
+        
+        forms:
+          type: tab
+          title: Forms
+          
+          fields:
+            forms.ajax_submit:
+              type: toggle
+              label: Ajax Form Submission
+              help: Enable smooth form submission without page reload
+              default: 1
+              options:
+                1: PLUGIN_ADMIN.ENABLED
+                0: PLUGIN_ADMIN.DISABLED
+              validate:
+                type: bool
+                
+            forms.success_message:
+              type: text
+              label: Success Message
+              help: Message shown after successful form submission
+              default: 'Message sent successfully'
+              
+            forms.error_message:
+              type: text
+              label: Error Message
+              help: Message shown when form submission fails
+              default: 'An error occurred. Please try again.'
+        
+        advanced:
+          type: tab
+          title: Advanced
+          
+          fields:
+            advanced.custom_css:
+              type: textarea
+              label: Custom CSS
+              help: Add custom CSS code
+              rows: 10
+              
+            advanced.custom_js:
+              type: textarea
+              label: Custom JavaScript
+              help: Add custom JavaScript code
+              rows: 10
+              
+            performance.lazy_load_images:
+              type: toggle
+              label: Lazy Load Images
+              help: Enable lazy loading for images
+              default: 1
+              options:
+                1: PLUGIN_ADMIN.ENABLED
+                0: PLUGIN_ADMIN.DISABLED
+              validate:
+                type: bool

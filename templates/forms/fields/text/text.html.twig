@@ -1,0 +1,20 @@
+{% set value = (value is null ? field.default : value) %}
+
+<div class="form-input-wrapper {{ field.size }} {{ field.wrapper_classes }}">
+    <input 
+        name="{{ (scope ~ field.name)|fieldName }}"
+        value="{{ value|join(', ')|e('html_attr') }}"
+        type="text"
+        {% if field.id is defined %}id="{{ field.id }}"{% endif %}
+        {% if field.classes is defined %}class="{{ field.classes }}"{% endif %}
+        {% if field.placeholder %}placeholder="{{ field.placeholder|t|e('html_attr') }}"{% endif %}
+        {% if field.autofocus in ['on', 'true', 1] %}autofocus="autofocus"{% endif %}
+        {% if field.novalidate in ['on', 'true', 1] %}novalidate="novalidate"{% endif %}
+        {% if field.readonly in ['on', 'true', 1] %}readonly="readonly"{% endif %}
+        {% if field.disabled in ['on', 'true', 1] %}disabled="disabled"{% endif %}
+        {% if field.autocomplete is defined %}autocomplete="{{ field.autocomplete }}"{% endif %}
+        {% if field.validate.required in ['on', 'true', 1] %}required="required"{% endif %}
+        {% if field.validate.pattern %}pattern="{{ field.validate.pattern|e('html_attr') }}"{% endif %}
+        {% if field.validate.message %}title="{{ field.validate.message|t|e('html_attr') }}"{% endif %}
+    />
+</div>

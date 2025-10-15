@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="{{ grav.language.getActive ?: 'en' }}">
+<head>
+    <meta charset="utf-8">
+    <title>{% if page.title %}{{ page.title }} | {% endif %}{{ theme_config.site.name ?: config.site.title }}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    {% if page.header.description %}
+    <meta name="description" content="{{ page.header.description }}">
+    {% else %}
+    <meta name="description" content="{{ config.site.description }}">
+    {% endif %}
+    
+    {% if page.header.keywords %}
+    <meta name="keywords" content="{{ page.header.keywords }}">
+    {% endif %}
+    
+    {# Open Graph Meta Tags #}
+    <meta property="og:title" content="{% if page.title %}{{ page.title }}{% else %}{{ theme_config.site.name ?: config.site.title }}{% endif %}">
+    <meta property="og:description" content="{% if page.header.description %}{{ page.header.description }}{% else %}{{ config.site.description }}{% endif %}">
+    {% set og_image = theme_config.images.og_image ?: 'theme://images/og_image.png' %}
+    <meta property="og:image" content="{{ url(og_image, true) }}">
+    <meta property="og:url" content="{{ page.url(true) }}">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="{{ theme_config.site.name ?: config.site.title }}">
+    
+    {# Twitter Card Meta Tags #}
+    <meta name="twitter:card" content="summary_large_image">
+    {% if theme_config.social.twitter %}
+    <meta name="twitter:site" content="{{ theme_config.social.twitter }}">
+    {% endif %}
+    <meta name="twitter:title" content="{% if page.title %}{{ page.title }}{% else %}{{ theme_config.site.name ?: config.site.title }}{% endif %}">
+    <meta name="twitter:description" content="{% if page.header.description %}{{ page.header.description }}{% else %}{{ config.site.description }}{% endif %}">
+    <meta name="twitter:image" content="{{ url(og_image, true) }}">
+    
+    {# Twemoji for emoji support #}
+    <script src="https://cdn.jsdelivr.net/npm/@twemoji/api@latest/dist/twemoji.min.js" crossorigin="anonymous"></script>
+    
+    {# Favicon #}
+    {% set favicon = theme_config.images.favicon ?: 'theme://images/favicon.png' %}
+    <link rel="icon" href="{{ url(favicon) }}">
+    
+    {% block stylesheets %}
+        <link rel="stylesheet" href="{{ url('theme://css/style.css') }}">
+    {% endblock %}
+    
+    {{ assets.css()|raw }}
+</head>
+<body>
+    {% if theme_config.theme.matrix_effect %}
+    <div class="matrix-bg"></div>
+    {% endif %}
+
+    <div class="container">
+        {% block content %}{% endblock %}
+    </div>
+
+    {% block javascripts %}
+        <script src="{{ url('theme://js/custom.js') }}"></script>
+        {{ assets.js()|raw }}
+    {% endblock %}
+</body>
+</html>

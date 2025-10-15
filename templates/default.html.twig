@@ -1,0 +1,116 @@
+{% extends 'partials/base.html.twig' %}
+
+{% block content %}
+<div class="hero">
+    <h1>{{ page.title }}<span class="terminal-cursor"></span></h1>
+    
+    <div class="page-content">
+        {{ page.content|raw }}
+    </div>
+</div>
+
+<style>
+.page-content {
+    color: var(--text-secondary);
+    line-height: 1.8;
+    font-size: 16px;
+    margin-top: 30px;
+}
+
+.page-content h1 {
+    color: var(--primary-green);
+    font-size: 48px;
+    margin: 40px 0 20px;
+    text-transform: uppercase;
+    letter-spacing: 5px;
+    animation: glitch 2s linear infinite;
+}
+
+.page-content h2 {
+    color: var(--primary-green);
+    font-size: 28px;
+    margin: 30px 0 15px;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+}
+
+.page-content h3 {
+    color: var(--primary-green);
+    font-size: 20px;
+    margin: 25px 0 12px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.page-content p {
+    margin-bottom: 20px;
+}
+
+.page-content a {
+    color: var(--primary-green);
+    text-decoration: underline;
+    transition: all 0.3s;
+}
+
+.page-content a:hover {
+    text-shadow: 0 0 10px var(--primary-green);
+}
+
+.page-content ul, .page-content ol {
+    margin: 20px 0;
+    padding-left: 30px;
+}
+
+.page-content li {
+    margin-bottom: 10px;
+}
+
+.page-content strong {
+    color: var(--primary-green);
+    font-weight: bold;
+}
+
+.page-content hr {
+    border: none;
+    border-top: 1px solid var(--border-color);
+    margin: 30px 0;
+}
+
+.page-content img {
+    max-width: 100%;
+    height: auto;
+    border: 1px solid var(--border-color);
+    margin: 20px 0;
+}
+
+.page-content code {
+    background: var(--bg-dark);
+    border: 1px solid var(--border-color);
+    padding: 2px 6px;
+    font-family: 'Mono', monospace;
+    color: var(--primary-green);
+}
+
+.page-content pre {
+    background: var(--bg-dark);
+    border: 1px solid var(--border-color);
+    padding: 20px;
+    overflow-x: auto;
+    margin: 20px 0;
+}
+
+.page-content pre code {
+    background: none;
+    border: none;
+    padding: 0;
+}
+
+.page-content blockquote {
+    border-left: 3px solid var(--primary-green);
+    padding-left: 20px;
+    margin: 20px 0;
+    color: var(--text-primary);
+    font-style: italic;
+}
+</style>
+{% endblock %}
