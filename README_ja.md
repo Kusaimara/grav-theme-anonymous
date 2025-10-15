@@ -22,7 +22,7 @@ Grav CMS用のサイバーパンクスタイルテーマ。マトリックス風
 
 ## インストール
 
-### 方法1: ZIPインストール（推奨）
+### 方法1: ZIPインストール(推奨)
 
 1. 最新リリースをZIPファイルとしてダウンロード
 2. Grav管理画面で `テーマ` → `追加` に移動
@@ -56,6 +56,21 @@ theme:
   glitch_effect: true
 ```
 
+## お問い合わせフォームテンプレート
+
+`contact-form-sample` フォルダには、Gravのページにコピー&ペーストして使えるお問い合わせフォームのテンプレートが含まれています。このテンプレートはGravのFormプラグインとシームレスに連携し、以下の機能を含んでいます:
+
+- ハッカー/サイバーパンク風にスタイリング済みのフォームフィールド
+- メールアドレスのバリデーション
+- reCAPTCHA対応
+- レスポンシブデザイン
+
+**使用方法:**
+1. GravのFormプラグインがインストールされ、有効化されていることを確認
+2. `contact-form-sample/form.md` の内容をコピー
+3. Gravサイトに新しいページを作成(例: `pages/contact/form.md`)
+4. コピーした内容をペーストし、必要に応じてカスタマイズ(メールアドレス、reCAPTCHAキーなど)
+
 ## カスタマイズ
 
 ### CSS変数
@@ -78,7 +93,7 @@ theme:
 ## クレジット
 
 **作者**: Kusai Mara  
-**GitHub**: [@Kusaimara](https://github.com/Kusaimara)
+**GitHub**: [@Kusaimara](https://github.com/Kusaimara)  
 **X(Twitter)**: [@Kusai_Mara](https://x.com/Kusai_Mara)
 
 ## ライセンス

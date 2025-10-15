@@ -56,6 +56,21 @@ theme:
   glitch_effect: true
 ```
 
+## Contact Form Template
+
+The `contact-form-sample` folder contains a ready-to-use contact form template that you can copy and paste into your Grav pages. This template is designed to work seamlessly with Grav's Form plugin and includes:
+
+- Pre-styled hacker/cyberpunk aesthetic form fields
+- Email validation
+- reCAPTCHA support
+- Responsive design
+
+**To use it:**
+1. Make sure the Grav **Form plugin** is installed and enabled
+2. Copy the contents of `contact-form-sample/form.md`
+3. Create a new page in your Grav site (e.g., `pages/contact/form.md`)
+4. Paste the content and customize as needed (email addresses, reCAPTCHA keys, etc.)
+
 ## Customization
 
 ### CSS Variables
@@ -78,7 +93,7 @@ Edit `css/style.css` to customize colors:
 ## Credits
 
 **Author**: Kusai Mara  
-**GitHub**: [@Kusaimara](https://github.com/Kusaimara)
+**GitHub**: [@Kusaimara](https://github.com/Kusaimara)  
 **X(Twitter)**: [@Kusai_Mara](https://x.com/Kusai_Mara)
 
 ## License
@@ -86,4 +101,3 @@ Edit `css/style.css` to customize colors:
 MIT License - see [LICENSE](LICENSE) file for details
 
 Made with 💚 and terminal love
-# grav-theme-anonymous
