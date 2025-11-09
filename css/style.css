@@ -816,3 +816,284 @@ button[type="submit"].hacker-submit-button:hover {
     background: rgba(255, 0, 64, 0.1);
     color: #ff0040;
 }
+/* ===== Content Readability Improvements (v1.0.1) ===== */
+
+/* Enhanced text readability for blog posts and content pages */
+.section p {
+    margin: 15px 0;
+    line-height: 1.9;
+    color: #bbbbbb;
+    font-size: 16px;
+    letter-spacing: 0.5px;
+}
+
+/* Improved list item styling */
+.section ul li,
+.section ol li {
+    margin: 10px 0;
+    padding-left: 10px;
+    line-height: 1.9;
+    color: #bbbbbb;
+    font-size: 16px;
+    letter-spacing: 0.5px;
+}
+
+/* Green list markers for better visual hierarchy */
+.section ul li::marker {
+    color: var(--primary-green);
+    font-size: 1.2em;
+}
+
+.section ol li::marker {
+    color: var(--primary-green);
+    font-weight: bold;
+}
+
+/* H2 heading spacing improvements */
+.section h2 {
+    font-size: 32px;
+    margin-top: 40px;
+    margin-bottom: 25px;
+    padding-top: 10px;
+    color: var(--primary-green);
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    text-shadow: 0 0 10px rgba(0, 255, 65, 0.5);
+}
+
+.section h2:first-of-type {
+    margin-top: 20px;
+}
+
+/* H3 heading improvements */
+.section h3 {
+    font-size: 22px;
+    margin-top: 35px;
+    margin-bottom: 20px;
+    color: #00dd38;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+/* H4 heading styling */
+.section h4 {
+    font-size: 18px;
+    margin-top: 25px;
+    margin-bottom: 15px;
+    color: #00cc33;
+    letter-spacing: 1px;
+}
+
+/* Enhanced bold text */
+.section strong,
+.section b {
+    color: #dddddd;
+    font-weight: bold;
+    text-shadow: 0 0 5px rgba(221, 221, 221, 0.3);
+}
+
+/* Enhanced italic text */
+.section em,
+.section i {
+    color: #cccccc;
+    font-style: italic;
+}
+
+/* Improved link styling */
+.section a {
+    color: var(--primary-green);
+    text-decoration: none;
+    border-bottom: 1px solid var(--border-color);
+    transition: all 0.3s;
+    font-weight: bold;
+}
+
+.section a:hover {
+    border-bottom-color: var(--primary-green);
+    text-shadow: 0 0 10px var(--primary-green);
+    color: #00ff55;
+}
+
+/* Improved inline code styling */
+.section code {
+    background: var(--bg-black);
+    color: #00ff88;
+    padding: 2px 8px;
+    border-radius: 3px;
+    font-family: 'Mono', 'Courier New', monospace;
+    font-size: 15px;
+    border: 1px solid var(--border-color);
+}
+
+/* Code block styling */
+.section pre {
+    background: var(--bg-black);
+    border: 1px solid var(--border-color);
+    padding: 20px;
+    overflow-x: auto;
+    margin: 20px 0;
+}
+
+.section pre code {
+    background: transparent;
+    border: none;
+    padding: 0;
+    color: #00ff88;
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+/* Enhanced blockquote styling */
+.section blockquote {
+    margin: 25px 0;
+    padding: 20px 30px;
+    border-left: 3px solid var(--primary-green);
+    background: var(--bg-black);
+    font-style: italic;
+    color: #aaaaaa;
+    font-size: 16px;
+    line-height: 1.8;
+}
+
+.section blockquote p {
+    color: #aaaaaa;
+}
+
+/* Horizontal rule styling */
+.section hr {
+    border: none;
+    border-top: 1px solid var(--border-color);
+    margin: 40px 0;
+}
+
+/* Enhanced table styling */
+.section table {
+    margin: 25px 0;
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 15px;
+}
+
+.section table th,
+.section table td {
+    padding: 12px 15px;
+    border: 1px solid var(--border-color);
+    color: #bbbbbb;
+}
+
+.section table th {
+    background: var(--bg-black);
+    color: var(--primary-green);
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.section table tr:hover {
+    background: rgba(0, 255, 65, 0.05);
+}
+
+/* List positioning */
+.section ul {
+    margin: 20px 0;
+    padding-left: 40px;
+    list-style-type: disc;
+}
+
+.section ol {
+    margin: 20px 0;
+    padding-left: 40px;
+    list-style-type: decimal;
+}
+
+/* Nested lists */
+.section ul ul,
+.section ol ol {
+    margin: 10px 0;
+    padding-left: 30px;
+}
+
+/* Image caption styling */
+.section figcaption {
+    color: #999999;
+    font-size: 14px;
+    font-style: italic;
+    text-align: center;
+    margin-top: 10px;
+}
+
+/* Image styling */
+.section img {
+    max-width: 100%;
+    height: auto;
+    margin: 20px 0;
+    border: 1px solid var(--border-color);
+}
+
+/* Title and content contrast enhancement */
+.section > h1,
+.section > h2 {
+    border-bottom: 2px solid var(--border-color);
+    padding-bottom: 10px;
+    margin-bottom: 30px;
+}
+
+/* Mobile responsiveness for readability */
+@media (max-width: 768px) {
+    .section p,
+    .section ul li,
+    .section ol li {
+        font-size: 15px;
+        line-height: 1.8;
+    }
+    
+    .section h2 {
+        font-size: 26px;
+        margin-top: 30px;
+        margin-bottom: 20px;
+    }
+    
+    .section h3 {
+        font-size: 20px;
+        margin-top: 25px;
+        margin-bottom: 15px;
+    }
+    
+    .section ul,
+    .section ol {
+        padding-left: 25px;
+    }
+    
+    .section table {
+        font-size: 14px;
+    }
+    
+    .section table th,
+    .section table td {
+        padding: 10px;
+    }
+}
+
+/* Small screen optimizations */
+@media (max-width: 480px) {
+    .section p,
+    .section ul li,
+    .section ol li {
+        font-size: 14px;
+    }
+    
+    .section h2 {
+        font-size: 22px;
+        margin-top: 25px;
+        margin-bottom: 15px;
+    }
+    
+    .section h3 {
+        font-size: 18px;
+    }
+    
+    .section ul,
+    .section ol {
+        padding-left: 20px;
+    }
+}

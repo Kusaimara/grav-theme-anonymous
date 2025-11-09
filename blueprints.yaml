@@ -1,12 +1,12 @@
 name: Anonymous
-version: 1.0.0
+version: 1.0.1
 description: 'A cyberpunk/matrix-inspired theme for Grav CMS with privacy-focused aesthetics'
 icon: terminal
 author:
   name: Kusai Mara
   url: https://github.com/Kusaimara
 homepage: https://github.com/Kusaimara/grav-theme-anonymous
-demo: https://anonymd.eu
+demo: https://grav-demo.kusaimara.net
 keywords: grav, theme, cyberpunk, privacy, matrix, hacker, security, anonymous
 bugs: https://github.com/Kusaimara/grav-theme-anonymous/issues
 readme: https://github.com/Kusaimara/grav-theme-anonymous
