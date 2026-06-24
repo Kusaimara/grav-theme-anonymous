@@ -2,6 +2,44 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.0.5] - 2026-06-23
+
+### Fixed
+- Added the SEO / Social (Open Graph image) tab to the `blog` page template as well
+  (it was previously only on `item` and `default`, so blog-type pages did not show it)
+
+### Note
+- Theme blueprint changes require a cache clear (`bin/grav clear-cache`) to appear in Admin
+- New pages must be saved once before the media upload area becomes available (Grav default)
+
+## [1.0.4] - 2026-06-23
+
+### Added
+- Per-page Open Graph image: og:image / twitter:image now resolve in priority order
+  page-selected image > page featured image (first media) > site-wide theme default
+- "SEO / Social" tab on page and post editors with an Open Graph image picker
+  (`filepicker` from the page's own media) for choosing a dedicated share image
+
+## [1.0.3] - 2026-06-23
+
+### Added
+- Blog listing template (`blog.html.twig`) with a responsive post-card grid and pagination
+- Single post template (`item.html.twig`) with featured image, tags/date/author meta,
+  previous/next navigation and back-to-blog link
+- Blog list works out of the box from published child pages; a defined `content.items`
+  collection in the page header is used automatically when present (enables pagination)
+
+## [1.0.2] - 2026-06-23
+
+### Fixed
+- Fixed logo / Social Share Image / favicon upload in Theme settings showing a
+  "Value theme://images/..." error and failing to upload
+- Removed hard-coded file paths that were pre-seeding the `file` fields with
+  unresolved values (root cause of the upload error)
+- Made og:image, twitter:image and favicon resolution array-aware (file fields
+  store the uploaded value as an array keyed by path) and skip the tags when unset
+- Added the missing `images/` folder so the `theme://images` upload destination exists
+
 ## [1.0.1] - 2025-11-08
 
 ### Improved

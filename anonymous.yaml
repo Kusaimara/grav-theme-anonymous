@@ -12,10 +12,14 @@ social:
   twitter: '@YourTwitterHandle'
   
 # Images
+# Set these via Admin > Themes > Anonymous > Images, or drop files into this theme's images/ folder.
+# IMPORTANT: do NOT hard-code 'theme://images/*.png' here. A `type: file` field treats a pre-set
+# string as an unresolved stored value and renders a "Value theme://images/logo.png" error in Admin.
+# Leave them empty so the upload widget starts clean.
 images:
-  logo: 'theme://images/logo.png'
-  og_image: 'theme://images/og_image.png'
-  favicon: 'theme://images/favicon.png'
+  logo: ''
+  og_image: ''
+  favicon: ''
 
 # Theme Settings
 theme:

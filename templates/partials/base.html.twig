@@ -18,8 +18,20 @@
     {# Open Graph Meta Tags #}
     <meta property="og:title" content="{% if page.title %}{{ page.title }}{% else %}{{ theme_config.site.name ?: config.site.title }}{% endif %}">
     <meta property="og:description" content="{% if page.header.description %}{{ page.header.description }}{% else %}{{ config.site.description }}{% endif %}">
-    {% set og_image = theme_config.images.og_image ?: 'theme://images/og_image.png' %}
-    <meta property="og:image" content="{{ url(og_image, true) }}">
+    {# OGP image priority: per-page chosen image > per-page featured (first media) > site-wide theme default #}
+    {% set og_image_url = '' %}
+    {% if page.header.og_image and page.media[page.header.og_image] %}
+        {% set og_image_url = url(page.media[page.header.og_image].url, true) %}
+    {% elseif page.media.images|first %}
+        {% set og_image_url = url(page.media.images|first.url, true) %}
+    {% else %}
+        {% set theme_og = theme_config.images.og_image %}
+        {% if theme_og is iterable %}{% set theme_og = theme_og|keys|first %}{% endif %}
+        {% if theme_og %}{% set og_image_url = url(theme_og, true) %}{% endif %}
+    {% endif %}
+    {% if og_image_url %}
+    <meta property="og:image" content="{{ og_image_url }}">
+    {% endif %}
     <meta property="og:url" content="{{ page.url(true) }}">
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="{{ theme_config.site.name ?: config.site.title }}">
@@ -31,14 +43,17 @@
     {% endif %}
     <meta name="twitter:title" content="{% if page.title %}{{ page.title }}{% else %}{{ theme_config.site.name ?: config.site.title }}{% endif %}">
     <meta name="twitter:description" content="{% if page.header.description %}{{ page.header.description }}{% else %}{{ config.site.description }}{% endif %}">
-    <meta name="twitter:image" content="{{ url(og_image, true) }}">
+    {% if og_image_url %}<meta name="twitter:image" content="{{ og_image_url }}">{% endif %}
     
     {# Twemoji for emoji support #}
     <script src="https://cdn.jsdelivr.net/npm/@twemoji/api@latest/dist/twemoji.min.js" crossorigin="anonymous"></script>
     
-    {# Favicon #}
-    {% set favicon = theme_config.images.favicon ?: 'theme://images/favicon.png' %}
+    {# Favicon (same array-aware handling as og_image) #}
+    {% set favicon = theme_config.images.favicon %}
+    {% if favicon is iterable %}{% set favicon = favicon|keys|first %}{% endif %}
+    {% if favicon %}
     <link rel="icon" href="{{ url(favicon) }}">
+    {% endif %}
     
     {% block stylesheets %}
         <link rel="stylesheet" href="{{ url('theme://css/style.css') }}">

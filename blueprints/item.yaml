@@ -1,0 +1,19 @@
+'@extends':
+    type: default
+    context: blueprints://pages
+
+form:
+    fields:
+        tabs:
+            type: tabs
+            fields:
+                seo:
+                    type: tab
+                    title: SEO / Social
+                    fields:
+                        header.og_image:
+                            type: filepicker
+                            label: 'Open Graph / Social Share Image'
+                            description: 'Pick an image already uploaded to this page''s media. Used for og:image / twitter:image when the post is shared. If left empty, the post''s first image (or the site-wide default) is used.'
+                            preview_images: true
+                            folder: '@self'

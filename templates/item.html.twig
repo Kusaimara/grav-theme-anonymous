@@ -1,0 +1,255 @@
+{% extends 'partials/base.html.twig' %}
+
+{% block content %}
+<article class="section" style="margin-top: 30px;">
+    <div class="article-header">
+        <h1 class="article-title">{{ page.title }}<span class="terminal-cursor"></span></h1>
+
+        <div class="article-meta">
+            <span class="meta-date">&#128197; {{ page.date|date("Y-m-d H:i") }}</span>
+
+            {% if page.taxonomy.tag %}
+            <span class="meta-tags">&#127991;
+                {% for tag in page.taxonomy.tag %}<span class="tag">{{ tag }}</span>{% endfor %}
+            </span>
+            {% endif %}
+
+            {% if page.header.author %}
+            <span class="meta-author">&#9997; {{ page.header.author }}</span>
+            {% endif %}
+        </div>
+    </div>
+
+    {% if page.media.images|first %}
+    <div class="article-featured-image">
+        <img src="{{ page.media.images|first.url }}" alt="{{ page.title }}">
+    </div>
+    {% endif %}
+
+    <div class="article-content">
+        {{ page.content|raw }}
+    </div>
+
+    <div class="article-footer">
+        <div class="article-nav">
+            {% if page.prevSibling %}
+            <a href="{{ page.prevSibling.url }}" class="nav-link prev-post">
+                <span class="nav-label">&#8592; PREVIOUS</span>
+                <span class="nav-title">{{ page.prevSibling.title }}</span>
+            </a>
+            {% endif %}
+
+            {% if page.nextSibling %}
+            <a href="{{ page.nextSibling.url }}" class="nav-link next-post">
+                <span class="nav-label">NEXT &#8594;</span>
+                <span class="nav-title">{{ page.nextSibling.title }}</span>
+            </a>
+            {% endif %}
+        </div>
+
+        {% if page.parent %}
+        <div class="back-to-blog">
+            <a href="{{ page.parent.url }}" class="btn-back">&#8592; BACK TO BLOG</a>
+        </div>
+        {% endif %}
+    </div>
+</article>
+
+<style>
+.article-header {
+    margin-bottom: 30px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.article-title {
+    font-size: 36px;
+    color: var(--primary-green);
+    margin-bottom: 20px;
+    line-height: 1.3;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.article-meta {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    align-items: center;
+    color: var(--text-secondary);
+    font-size: 14px;
+}
+
+.meta-tags {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+}
+
+.tag {
+    background: var(--bg-dark);
+    border: 1px solid var(--border-color);
+    padding: 3px 10px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 11px;
+    transition: all 0.3s;
+}
+
+.tag:hover {
+    border-color: var(--primary-green);
+    color: var(--primary-green);
+}
+
+.article-featured-image {
+    width: 100%;
+    max-height: 500px;
+    overflow: hidden;
+    margin-bottom: 30px;
+    border: 1px solid var(--border-color);
+}
+
+.article-featured-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.article-content {
+    color: var(--text-secondary);
+    line-height: 1.9;
+    font-size: 16px;
+}
+
+.article-content h2 {
+    color: var(--primary-green);
+    font-size: 28px;
+    margin: 40px 0 20px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.article-content h3 {
+    color: var(--primary-green);
+    font-size: 22px;
+    margin: 30px 0 15px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.article-content p { margin-bottom: 20px; }
+
+.article-content a {
+    color: var(--primary-green);
+    text-decoration: underline;
+    transition: all 0.3s;
+}
+
+.article-content a:hover { text-shadow: 0 0 10px var(--primary-green); }
+
+.article-content img {
+    max-width: 100%;
+    height: auto;
+    border: 1px solid var(--border-color);
+    margin: 20px 0;
+}
+
+.article-content code {
+    background: var(--bg-dark);
+    border: 1px solid var(--border-color);
+    padding: 2px 6px;
+    font-family: 'Mono', monospace;
+    color: var(--primary-green);
+}
+
+.article-content pre {
+    background: var(--bg-dark);
+    border: 1px solid var(--border-color);
+    padding: 20px;
+    overflow-x: auto;
+    margin: 20px 0;
+}
+
+.article-content pre code { background: none; border: none; padding: 0; }
+
+.article-content blockquote {
+    border-left: 3px solid var(--primary-green);
+    padding-left: 20px;
+    margin: 20px 0;
+    color: var(--text-primary);
+    font-style: italic;
+}
+
+.article-content ul, .article-content ol {
+    margin: 20px 0;
+    padding-left: 30px;
+}
+
+.article-content li { margin-bottom: 10px; }
+
+.article-footer {
+    margin-top: 50px;
+    padding-top: 30px;
+    border-top: 1px solid var(--border-color);
+}
+
+.article-nav {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
+.nav-link {
+    background: var(--bg-black);
+    border: 1px solid var(--border-color);
+    padding: 20px;
+    text-decoration: none;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    transition: all 0.3s;
+}
+
+.nav-link:hover {
+    border-color: var(--primary-green);
+    transform: translateY(-3px);
+}
+
+.nav-label {
+    color: var(--text-secondary);
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.nav-title { color: var(--primary-green); font-size: 16px; }
+
+.prev-post { text-align: left; }
+.next-post { text-align: right; }
+.back-to-blog { text-align: center; }
+
+.btn-back {
+    display: inline-block;
+    background: var(--bg-black);
+    color: var(--primary-green);
+    border: 2px solid var(--primary-green);
+    padding: 15px 40px;
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    transition: all 0.3s;
+}
+
+.btn-back:hover {
+    background: var(--primary-green);
+    color: var(--bg-black);
+}
+
+@media (max-width: 768px) {
+    .article-title { font-size: 28px; }
+    .article-nav { grid-template-columns: 1fr; }
+    .next-post { text-align: left; }
+}
+</style>
+{% endblock %}
