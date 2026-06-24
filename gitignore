@@ -1,0 +1,23 @@
+# ───────── OS / editor cruft ─────────
+.DS_Store
+Thumbs.db
+desktop.ini
+*.swp
+*.swo
+*~
+.idea/
+.vscode/
+
+# ───────── Node / build artifacts (only if you add a build step) ─────────
+node_modules/
+.sass-cache/
+*.css.map
+*.log
+
+# ───────── User-uploaded theme assets ─────────
+# The logo / favicon / OG-image upload fields save into images/ (theme://images).
+# If you ever edit this theme inside a live Grav install, those site-specific
+# uploads must NOT be committed to the public theme. Keep the folder, ignore its
+# contents. To ship a real default asset, force-add it:  git add -f images/og_image.png
+images/*
+!images/.gitkeep
